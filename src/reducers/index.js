@@ -36,22 +36,23 @@ export const reducer = (state = initialState, action)=>{
             }
         //6. Add in a reducer case to accomidate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
         case ADD_SMURF:
-            const newSmurf = [{
-                name: action.payload,
-                nickname: action.payload,
-                position: action.payload,
-                description: action.payload,
-                id: Date.now()
-            }]
+            // const newSmurf = [{
+            //     name: action.payload,
+            //     nickname: action.payload,
+            //     position: action.payload,
+            //     description: action.payload,
+            // }]
             return {
                 ...state,
-                smurfs: [...state.smurfs, newSmurf]
+                smurfs: [...state.smurfs, action.payload],
+                isLoading: false
             }
         //7. Add in a reducer case that adds in a value to the error message.
         case ADD_ERROR:
             return {
                 ...state,
-                error: action.payload
+                error: action.payload,
+                isLoading: false
             }
         default:
             return state
