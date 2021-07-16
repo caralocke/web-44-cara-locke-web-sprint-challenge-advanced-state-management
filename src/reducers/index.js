@@ -1,3 +1,4 @@
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_SMURF, ADD_ERROR } from '../actions'
 //Task List:
 //1. Adds the following state values into the initialState:
 //  - an array of smurfs
@@ -11,7 +12,7 @@ export const initialState = {
 }
 
 //2. Add in the arguments needed to complete a standard reducer function.
-const reducer = (state = initialState, action)=>{
+export const reducer = (state = initialState, action)=>{
     switch(action.type) {
         //3. Add in a reducer case to accomidate the start of a smurf fetch.
         case FETCH_START:
@@ -35,13 +36,13 @@ const reducer = (state = initialState, action)=>{
             }
         //6. Add in a reducer case to accomidate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
         case ADD_SMURF:
-            const newSmurf = {
+            const newSmurf = [{
                 name: action.payload,
                 nickname: action.payload,
                 position: action.payload,
                 description: action.payload,
                 id: Date.now()
-            }
+            }]
             return {
                 ...state,
                 smurfs: [...state.smurfs, newSmurf]
