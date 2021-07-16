@@ -9,7 +9,7 @@ export const ADD_ERROR = 'ADD_ERROR'
 export const fetchSmurfs = () => {
     return(dispatch) => {
         dispatch({type:FETCH_START})
-        axios.get('http://localhost:333/smurfs')
+        axios.get('http://localhost:3333/smurfs')
              .then(res => {
                  dispatch({type:FETCH_SUCCESS, payload:res.data})
              })
